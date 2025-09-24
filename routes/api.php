@@ -5,7 +5,10 @@ use App\Http\Controllers\PublisherController;
 use App\Http\Controllers\PictureController;
 use Illuminate\Support\Facades\Route;
 
+Route::middleware('auth:sanctum')->group(function (){
 Route::get('/publishers',[PublisherController::class, 'index']);
+});
+
 Route::get('/publishers/{id}/galleries', [PublisherController::class, 'galleries']);
 
 Route::get('/galleries/{id}', [GalleryController::class,'show']);
